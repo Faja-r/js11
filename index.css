@@ -1,39 +1,97 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
-    margin: 0%;
-    padding: 0%;
+
+body {
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f4e4ba;
 }
-.container{
+
+.container {
     background-color: #fff;
     padding: 2rem;
     border-radius: 1rem;
-    min-height: 45vh;
-    width:40vh;
-
-
+    width: 60vh;
 }
-form{
-    margin:2rem 0 1rem 0;
 
+form {
+    margin: 2rem 0 1rem 0;
 }
-form select button, input{
+
+input, select, button {
     width: 100%;
     border: none;
     outline: none;
     border-radius: 0.75rem;
-
 }
-form input{
-   border:1px solid lightgray;
-   font-size: 1rem;
-   height:3rem;
-   padding-left:0.5rem;
 
+input {
+    border: 1px solid lightgray;
+    font-size: 1rem;
+    height: 3rem;
+    padding-left: 0.5rem;
 }
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.currency-group {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.currency-from {
+    margin-right: 1rem;
+}
+
+.currency-to {
+    margin-left: 1rem;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.select-container img {
+    max-width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.select-container select {
+    font-size: 1rem;
+}
+
+button{
+    margin-top: 10%;
+    text-align: center;
+}
+.exchange-rate{
+    margin-top:10%;
+}
+/* .select-box select::-webkit-scrollbar{
+    width:8px;
+}
+.select-box select::-webkit-scrollbar-track{
+    background: #fff;
+}
+.select-box select::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 8px;
+    border-right: 2px solid #fff;
+} */
