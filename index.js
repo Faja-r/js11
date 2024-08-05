@@ -1,7 +1,7 @@
 const dropdown =document.querySelectorAll(".dropdown");
 
 for (let i=0 ; i<dropdown.clientHeight;i++){
-    for (currency_code in country_code){
+    for (currency_code in countryList){
         let selected;
         if(i==0){
             selected=currency_code=="USD"?"selected":"";
@@ -13,27 +13,29 @@ for (let i=0 ; i<dropdown.clientHeight;i++){
     let optionTag = `<option value="${currency_code}" ${selected}>${currency_code}</option>`
     dropdown[i].insertAdjacentHTML("beforeend",optionTag);
 }
-dropdown[i].addEventListener("change", e={
-    loadFlag(e.target);
-    });
+  
+dropdown[i].addEventListener("change", (e) => {
+    loadFlag(e, target);
+});
+
 
 function loadFlag(element){
-    for(code in country_code){
+    for(code in countryList){
         if(code==element.value){
             let imgTag =element.parameter.querySelector("img");
-            imgTag.src=`https://flagsapi.com/${country_code[code]}/flat/64.png`;
+            imgTag.src=`https://flagsapi.com/${countryList[code]}/flat/64.png`;
         }
     }
 }
 window.addEventListener("load",()=>{
     getExchangeRate();
 });
-getbutton.addEventListener("click," e=>{
-e.preventDefault();
-getExchangeRate();
+    getbutton.addEventListener("click", e=>{
+     e.preventDefault();
+    getExchangeRate();
 });
  const exchangeIcon = document.querySelector(".drop-down .icon");
- exchangeIcon.addEventListener("click,"()=>{
+ exchangeIcon.addEventListener("click",()=>{
     let tempcode= fromCurrency.value;
     fromCurrency.value=toCurrency.value;
     toCurrency.value=tempcode;
@@ -52,5 +54,7 @@ if(amountVal=="" || amountVal=="0"){
 }
 let url= `https://v6.exchangerate-api.com/${apiKey}/latest/USD`;
 fetch(url).then(Response=> Response.json()).then(result=>{
-    let exchangeRate= result.conversion_rates[toCurrency.value]
-})
+    let exchangeRate= result.conversion_rates[toCurrency.value];
+    let totalExchangeRate=(amountVal * exchangeRate).toFixed(2);
+    console.log(totalExchangeRate);
+});
